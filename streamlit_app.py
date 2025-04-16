@@ -59,10 +59,10 @@ if prompt := st.chat_input("What would you like to know today?"):
 
         # If this is an even-numbered assistant message (2nd, 4th, etc.)
         if len(assistant_messages) % 2 == 1:
-            full_response += (
-                "\n\n --------------------- \n 💡 Want to learn how I come up with responses? 💡 Visit this link to find out more: "
-                "https://ai.meta.com/tools/system-cards/ai-systems-that-generate-text/"
-            )
+            (
+                "💡 Want to learn how I come up with responses? 💡 Visit this link to find out more: "
+                "https://ai.meta.com/tools/system-cards/ai-systems-that-generate-text/ \n --------------------- \n\n"
+            ) += full_response
             response_container.markdown(full_response)
 
     # Store the final response in session state
