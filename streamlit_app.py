@@ -47,22 +47,27 @@ if prompt := st.chat_input("What would you like to know today?"):
     with st.chat_message("assistant"):
         response_container = st.empty()  # placeholder for streaming text
         full_response = ""
-        for chunk in stream:
-            if chunk.choices[0].delta.content:
-                full_response += chunk.choices[0].delta.content
-                response_container.markdown(full_response)
 
         # Count previous assistant messages
         assistant_messages = [
             msg for msg in st.session_state.messages if msg["role"] == "assistant"
         ]
 
-        # If this is an even-numbered assistant message (2nd, 4th, etc.)
+        # If this is an even-numbered assistant message (2nd, 4th, etc.), prepend the message
+        prepend_message = ""
         if len(assistant_messages) % 2 == 1:
-            ("💡 Want to learn how I come up with responses? 💡 Visit this link to find out more: "
-            "https://ai.meta.com/tools/system-cards/ai-systems-that-generate-text/ \n --------------------- \n\n"
-            ) += full_response
+            prepend_message = (
+                "💡 Want to get inside my brain? 💡 Click here to find out more: "
+                "https://ai.meta.com/tools/system-cards/ai-systems-that-generate-text/\n\n ---------------- \n"
+            )
+            full_response += prepend_message
             response_container.markdown(full_response)
+
+        # Continue streaming the assistant's response
+        for chunk in stream:
+            if chunk.choices[0].delta.content:
+                full_response += chunk.choices[0].delta.content
+                response_container.markdown(full_response)
 
     # Store the final response in session state
     st.session_state.messages.append({"role": "assistant", "content": full_response})
