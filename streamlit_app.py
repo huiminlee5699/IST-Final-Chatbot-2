@@ -2,7 +2,10 @@ import streamlit as st
 from openai import OpenAI
 import time
 
-
+st.set_page_config(
+    page_title="💬 CHATBOT AI",
+    page_icon="💬"
+)
 
 st.markdown("""
 <style>
@@ -29,13 +32,8 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-
 # Show title and description.
 st.markdown("<h1 style='font-family: \"Inria Sans\", sans-serif; color: #3f39e3;'>💬 CHATBOT AI</h1>", unsafe_allow_html=True)
-st.set_page_config(
-    page_title="💬 CHATBOT AI",
-    page_icon="💬"
-)
 
 st.write(
     "Welcome to Chatbot, a new OpenAI-powered chatbot! "
