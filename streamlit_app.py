@@ -59,16 +59,12 @@ if prompt := st.chat_input("What would you like to know today?"):
         # If this is an even-numbered assistant message (2nd, 4th, etc.), prepend the message
         prepend_message = ""
         if len(assistant_messages) % 2 == 1:
-            st.markdown(
-                """
-                <div style='background-color:#ffeaa7; padding: 10px; border-radius: 8px; margin-bottom: 1rem;'>
-                    💡 <strong>Want to get inside my brain?</strong> 💡<br>
-                    👉 <a href='https://ai.meta.com/tools/system-cards/ai-systems-that-generate-text/' target='_blank'>
-                    Click here to find out more</a>
-                </div>
-                """,
-                unsafe_allow_html=True,
+            prepend_message = (
+                "💡 Want to get inside my brain? 💡 Click here to find out more: "
+                "https://ai.meta.com/tools/system-cards/ai-systems-that-generate-text/\n\n ---------------- \n"
             )
+            full_response += prepend_message
+            response_container.markdown(full_response)
 
         # Continue streaming the assistant's response
         for chunk in stream:
