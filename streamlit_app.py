@@ -1,5 +1,6 @@
 import streamlit as st
 from openai import OpenAI
+import time
 
 # Show title and description.
 st.title("💬 Chatbot")
@@ -43,6 +44,8 @@ if prompt := st.chat_input("What would you like to know today?"):
         stream=True,
     )
 
+    time.sleep(2)
+    
     # Stream the assistant response while building it up
     with st.chat_message("assistant"):
         response_container = st.empty()  # placeholder for streaming text
