@@ -2,6 +2,8 @@ import streamlit as st
 from openai import OpenAI
 import time
 
+
+
 st.markdown("""
 <style>
     /* Import fonts */
@@ -13,26 +15,28 @@ st.markdown("""
         font-family: 'Inria Sans', sans-serif !important; 
         color: #3f39e3 !important;
     }
+    /* Additional selectors to ensure title styling */
+    .st-emotion-cache-10trblm h1, 
+    .stMarkdown h1 {
+        font-family: 'Inria Sans', sans-serif !important; 
+        color: #3f39e3 !important;
+    }
     
     /* All other text (Inter) */
     body, p, div, span, li, a, button, input, textarea, .stTextInput label {
         font-family: 'Inter', sans-serif !important;
-    }
-    
-    /* Custom avatar colors */
-    .stChatMessage [data-testid="stChatMessageAvatar"] {
-        background-color: #1E88E5 !important; /* Blue for assistant */
-    }
-    
-    .stChatMessage [data-testid="stChatMessageAvatar"][aria-label="user"] {
-        background-color: #43A047 !important; /* Green for user */
     }
 </style>
 """, unsafe_allow_html=True)
 
 
 # Show title and description.
-st.title("💬 CHATBOT AI")
+st.markdown("<h1 style='font-family: \"Inria Sans\", sans-serif; color: #3f39e3;'>💬 CHATBOT AI</h1>", unsafe_allow_html=True)
+st.set_page_config(
+    page_title="💬 CHATBOT AI",
+    page_icon="💬"
+)
+
 st.write(
     "Welcome to Chatbot, a new OpenAI-powered chatbot! "
     "Feel free to ask me anything!"
