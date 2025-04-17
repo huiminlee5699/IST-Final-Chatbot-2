@@ -59,7 +59,7 @@ if prompt := st.chat_input("What would you like to know today?"):
         if len(assistant_messages) == 1:  # Changed condition to display after 2nd response
             prepend_message = (
                 "💡🧠🤓 <strong>Want to learn how I come up with responses?</strong>\n"
-                "    <a href=\"https://ai.meta.com/tools/system-cards/ai-systems-that-generate-text/\" target=\"_blank\" style=\"color: #007BFF; text-decoration: none;\">\n"
+                "    <a href=\"https://www.figma.com/proto/haXTVr4wZaeSC344BqDBpR/Text-Transparency-Card?page-id=0%3A1&node-id=1-33&p=f&viewport=144%2C207%2C0.47&t=Hp8ZCw5Fg7ahsiq1-8&scaling=min-zoom&content-scaling=fixed&hide-ui=1" target=\"_blank\" style=\"color: #007BFF; text-decoration: none;\">\n"
                 "        Read more here →\n"
                 "    </a>\n\n ---------------- \n"
             )
