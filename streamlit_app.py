@@ -28,6 +28,16 @@ st.markdown("""
     body, p, div, span, li, a, button, input, textarea, .stTextInput label {
         font-family: 'Inter', sans-serif !important;
     }
+
+    /* Custom avatar colors */
+    [data-testid="stChatMessageAvatar"] {
+        background-color: #3f39e3 !important; /* Assistant avatar - matches title color */
+    }
+    
+    [data-testid="stChatMessageAvatar"][aria-label="user"] {
+        background-color: #00A36C !important; /* User avatar - teal green */
+    }
+    
 </style>
 """, unsafe_allow_html=True)
 
