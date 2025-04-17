@@ -56,7 +56,6 @@ if prompt := st.chat_input("What would you like to know today?"):
         
         # If this is after the second assistant message (2nd, 4th, etc.), prepend the message
         prepend_message = ""
-         prepend_message = ""
         if len(assistant_messages) == 1:  # Changed condition to display after 2nd response
             prepend_message = (
                 "💡🧠🤓 <strong>Want to learn how I come up with responses?</strong>\n"
