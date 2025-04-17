@@ -5,9 +5,10 @@ import time
 st.markdown("""
 <style>
     /* Import fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+    @import url("https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
     
-    /* Title font (Inter) */
+    /* Title font (Inria Sans) */
     .main h1 {
         font-family: 'Inria Sans', sans-serif !important;
     }
