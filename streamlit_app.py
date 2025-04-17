@@ -63,10 +63,7 @@ if prompt := st.chat_input("What would you like to know today?"):
                 "Read more here →\n"
                 "</a>\n\n ---------------- \n"
             )
-            
-            full_response += prepend_message
-            response_container.markdown(full_response, unsafe_allow_html=True)
-            
+              
             full_response += prepend_message
             response_container.markdown(full_response, unsafe_allow_html=True)
         
