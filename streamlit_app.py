@@ -23,7 +23,7 @@ if "messages" not in st.session_state:
 # Display the existing chat messages via `st.chat_message`.
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
-        st.markdown(message["content"])
+        st.markdown(message["content"],unsafe_allow_html=True)
         
 # Create a chat input field to allow the user to enter a message. 
 if prompt := st.chat_input("What would you like to know today?"):
