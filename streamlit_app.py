@@ -44,7 +44,7 @@ if prompt := st.chat_input("What would you like to know today?"):
         stream=True,
     )
 
-    time.sleep(2)
+    time.sleep(1)
     
     # Stream the assistant response while building it up
     with st.chat_message("assistant"):
