@@ -10,7 +10,8 @@ st.markdown("""
     
     /* Title font (Inria Sans) */
     .main h1 {
-        font-family: 'Inria Sans', sans-serif !important; color: #3f39e3 !important;
+        font-family: 'Inria Sans', sans-serif !important; 
+        color: #3f39e3 !important;
     }
     
     /* All other text (Inter) */
