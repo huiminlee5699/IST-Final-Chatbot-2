@@ -15,7 +15,7 @@ st.markdown(
     /* Darker background for assistant messages */
     div[data-testid="chat-message"] div:nth-child(1):has(svg) {
         background-color: #2e2e2e !important;
-        color: white;
+        color: blue;
         border-radius: 0.5rem;
         padding: 1rem;
     }
