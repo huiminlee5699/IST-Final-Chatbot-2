@@ -7,7 +7,7 @@ st.markdown("""
     /* Import fonts */
     @import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&family=Inter:wght@400;500;600&display=swap');
     
-    /* Title font (Inria Sans) */
+    /* Title font (Inter) */
     .main h1 {
         font-family: 'Inria Sans', sans-serif !important;
     }
@@ -30,7 +30,7 @@ st.markdown("""
 
 
 # Show title and description.
-st.title("💬 Chatbot")
+st.title("💬 CHATBOT AI")
 st.write(
     "Welcome to Chatbot, a new OpenAI-powered chatbot! "
     "Feel free to ask me anything!"
