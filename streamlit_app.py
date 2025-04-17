@@ -9,6 +9,29 @@ st.write(
     "Feel free to ask me anything!"
 )
 
+st.markdown(
+    """
+    <style>
+    /* Darker background for assistant messages */
+    div[data-testid="chat-message"] div:nth-child(1):has(svg) {
+        background-color: #2e2e2e !important;
+        color: white;
+        border-radius: 0.5rem;
+        padding: 1rem;
+    }
+
+    /* Lighter background for user messages */
+    div[data-testid="chat-message"] div:nth-child(1):not(:has(svg)) {
+        background-color: #f0f0f0 !important;
+        color: black;
+        border-radius: 0.5rem;
+        padding: 1rem;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 # Use the API key from Streamlit secrets
 openai_api_key = st.secrets["openai_api_key"]
 
