@@ -1,39 +1,31 @@
 import streamlit as st
 from openai import OpenAI
 import time
-
 # Show title and description.
 st.title("💬 Chatbot")
 st.write(
     "Welcome to Chatbot, a new OpenAI-powered chatbot! "
     "Feel free to ask me anything!"
 )
-
 # Use the API key from Streamlit secrets
 openai_api_key = st.secrets["openai_api_key"]
-
 # Create an OpenAI client.
 client = OpenAI(api_key=openai_api_key)
-
 # Create a session state variable to store the chat messages. This ensures that the
 # messages persist across reruns.
 if "messages" not in st.session_state:
     st.session_state.messages = []
-
 # Display the existing chat messages via `st.chat_message`.
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
-
 # Create a chat input field to allow the user to enter a message. This will display
 # automatically at the bottom of the page.
 if prompt := st.chat_input("What would you like to know today?"):
-
     # Store and display the current prompt.
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.markdown(prompt)
-
     # Generate a response using the OpenAI API.
     stream = client.chat.completions.create(
         model="gpt-3.5-turbo",
@@ -43,34 +35,31 @@ if prompt := st.chat_input("What would you like to know today?"):
         ],
         stream=True,
     )
-
     time.sleep(1)
     
     # Stream the assistant response while building it up
     with st.chat_message("assistant"):
         response_container = st.empty()  # placeholder for streaming text
         full_response = ""
-
         # Count previous assistant messages
         assistant_messages = [
             msg for msg in st.session_state.messages if msg["role"] == "assistant"
         ]
-
-        # If this is an even-numbered assistant message (2nd, 4th, etc.), prepend the message
+        # If this is after the second assistant message (2nd, 4th, etc.), prepend the message
         prepend_message = ""
-        if len(assistant_messages) % 2 == 1:
+        if len(assistant_messages) == 1:  # Changed condition to display after 2nd response
             prepend_message = (
-                "💡🧠🤓  Want to get inside my brain? 💡🧠🤓  Click here to find out more: "
-                "https://ai.meta.com/tools/system-cards/ai-systems-that-generate-text/\n\n ---------------- \n"
+                "💡🧠🤓 <strong>Want to learn how I come up with responses?</strong>\n"
+                "    <a href=\"https://ai.meta.com/tools/system-cards/ai-systems-that-generate-text/\" target=\"_blank\" style=\"color: #007BFF; text-decoration: none;\">\n"
+                "        Read more here →\n"
+                "    </a>\n\n ---------------- \n"
             )
             full_response += prepend_message
             response_container.markdown(full_response)
-
         # Continue streaming the assistant's response
         for chunk in stream:
             if chunk.choices[0].delta.content:
                 full_response += chunk.choices[0].delta.content
                 response_container.markdown(full_response)
-
     # Store the final response in session state
     st.session_state.messages.append({"role": "assistant", "content": full_response})
