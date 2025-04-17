@@ -9,29 +9,6 @@ st.write(
     "Feel free to ask me anything!"
 )
 
-st.markdown(
-    """
-    <style>
-    /* Darker background for assistant messages */
-    div[data-testid="chat-message"] div:nth-child(1):has(svg) {
-        background-color: #2e2e2e !important;
-        color: blue;
-        border-radius: 0.5rem;
-        padding: 1rem;
-    }
-
-    /* Lighter background for user messages */
-    div[data-testid="chat-message"] div:nth-child(1):not(:has(svg)) {
-        background-color: #f0f0f0 !important;
-        color: black;
-        border-radius: 0.5rem;
-        padding: 1rem;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-
 # Use the API key from Streamlit secrets
 openai_api_key = st.secrets["openai_api_key"]
 
@@ -83,11 +60,14 @@ if prompt := st.chat_input("What would you like to know today?"):
         prepend_message = ""
         if len(assistant_messages) % 2 == 1:
             prepend_message = (
-                "💡 Want to get inside my brain? 💡 Click here to find out more: "
-                "https://ai.meta.com/tools/system-cards/ai-systems-that-generate-text/\n\n ---------------- \n"
+                "<div style='background-color:#ffeaa7; padding: 10px; border-radius: 8px;'>"
+                "💡 <strong>Want to get inside my brain?</strong> 💡<br>"
+                "👉 <a href='https://ai.meta.com/tools/system-cards/ai-systems-that-generate-text/' target='_blank'>"
+                "Click here to find out more</a>"
+                "</div>\n\n---\n"
             )
             full_response += prepend_message
-            response_container.markdown(full_response)
+            response_container.markdown(full_response, unsafe_allow_html=True)
 
         # Continue streaming the assistant's response
         for chunk in stream:
