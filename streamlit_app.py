@@ -4,7 +4,6 @@ import time
 
 st.set_page_config(
     page_title="💬 CHATBOT AI",
-    page_icon="💬"
 )
 
 st.markdown("""
