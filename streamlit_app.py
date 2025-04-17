@@ -2,6 +2,33 @@ import streamlit as st
 from openai import OpenAI
 import time
 
+st.markdown("""
+<style>
+    /* Import fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+    
+    /* Title font (Inria Sans) */
+    .main h1 {
+        font-family: 'Inria Sans', sans-serif !important;
+    }
+    
+    /* All other text (Inter) */
+    body, p, div, span, li, a, button, input, textarea, .stTextInput label {
+        font-family: 'Inter', sans-serif !important;
+    }
+    
+    /* Custom avatar colors */
+    .stChatMessage [data-testid="stChatMessageAvatar"] {
+        background-color: #1E88E5 !important; /* Blue for assistant */
+    }
+    
+    .stChatMessage [data-testid="stChatMessageAvatar"][aria-label="user"] {
+        background-color: #43A047 !important; /* Green for user */
+    }
+</style>
+""", unsafe_allow_html=True)
+
+
 # Show title and description.
 st.title("💬 Chatbot")
 st.write(
