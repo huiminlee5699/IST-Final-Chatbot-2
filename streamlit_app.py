@@ -60,7 +60,7 @@ if prompt := st.chat_input("What would you like to know today?"):
         prepend_message = ""
         if len(assistant_messages) % 2 == 1:
             prepend_message = (
-                "💡 Want to get inside my brain? 💡 Click here to find out more: "
+                "💡🧠🤓  Want to get inside my brain? 💡🧠🤓  Click here to find out more: "
                 "https://ai.meta.com/tools/system-cards/ai-systems-that-generate-text/\n\n ---------------- \n"
             )
             full_response += prepend_message
