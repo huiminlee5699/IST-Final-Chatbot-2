@@ -7,21 +7,9 @@ st.set_page_config(
     page_title="💬 CHATBOT AI",
 )
 
-hotjar_script = """
-<script>
-    (function (c, s, q, u, a, r, e) {
-        c.hj=c.hj||function(){(c.hj.q=c.hj.q||[]).push(arguments)};
-        c._hjSettings = { hjid: a };
-        r = s.getElementsByTagName('head')[0];
-        e = s.createElement('script');
-        e.async = true;
-        e.src = q + c._hjSettings.hjid + u;
-        r.appendChild(e);
-    })(window, document, 'https://static.hj.contentsquare.net/c/csq-', '.js', 6381476);
-</script>
-"""
-
-st.markdown(hotjar_script, unsafe_allow_html=True)
+with open("analytics.html", "r") as f:
+    html_code = f.read()
+    components.html(html_code, height=0)
 
 
 # Original styling - unchanged
