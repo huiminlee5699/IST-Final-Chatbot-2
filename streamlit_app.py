@@ -9,14 +9,15 @@ st.set_page_config(
 
 hotjar_script = """
 <script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:YOUR_HOTJAR_ID,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    (function (c, s, q, u, a, r, e) {
+        c.hj=c.hj||function(){(c.hj.q=c.hj.q||[]).push(arguments)};
+        c._hjSettings = { hjid: a };
+        r = s.getElementsByTagName('head')[0];
+        e = s.createElement('script');
+        e.async = true;
+        e.src = q + c._hjSettings.hjid + u;
+        r.appendChild(e);
+    })(window, document, 'https://static.hj.contentsquare.net/c/csq-', '.js', 6381476);
 </script>
 """
 
