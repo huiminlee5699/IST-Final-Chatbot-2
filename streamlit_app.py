@@ -1,5 +1,6 @@
 import streamlit as st
 from openai import OpenAI
+import streamlit.components.v1 as components
 import time
 
 # Set page config first
