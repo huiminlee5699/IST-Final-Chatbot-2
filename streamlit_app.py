@@ -1,11 +1,40 @@
 import streamlit as st
 from openai import OpenAI
 import time
+from streamlit.components.v1 import html  # Add this import for the custom component
+
+# Add Maze snippet as early as possible (before page config)
+maze_script = """
+<script>
+(function (m, a, z, e) {
+  var s, t;
+  try {
+    t = m.sessionStorage.getItem('maze-us');
+  } catch (err) {}
+  if (!t) {
+    t = new Date().getTime();
+    try {
+      m.sessionStorage.setItem('maze-us', t);
+    } catch (err) {}
+  }
+  s = a.createElement('script');
+  s.src = z + '?apiKey=' + e;
+  s.async = true;
+  a.getElementsByTagName('head')[0].appendChild(s);
+  m.mazeUniversalSnippetApiKey = e;
+})(window, document, 'https://snippet.maze.co/maze-universal-loader.js', '16abf1fc-3397-439b-9561-75896a7f1306');
+</script>
+"""
 
 st.set_page_config(
     page_title="💬 CHATBOT AI",
 )
 
+# Inject Maze script with high priority using both methods for redundancy
+html(f"<div>{maze_script}</div>", height=0, width=0)
+st.components.html(maze_script, height=0, width=0)
+
+# Original styling - unchanged
 st.markdown("""
 <style>
     /* Import fonts */
