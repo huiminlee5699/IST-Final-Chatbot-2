@@ -1,9 +1,13 @@
 import streamlit as st
 from openai import OpenAI
 import time
-from streamlit.components.v1 import html  # Add this import for the custom component
 
-# Add Maze snippet as early as possible (before page config)
+# Set page config first
+st.set_page_config(
+    page_title="💬 CHATBOT AI",
+)
+
+# Add Maze snippet using st.components.html (with correct parameters)
 maze_script = """
 <script>
 (function (m, a, z, e) {
@@ -26,13 +30,8 @@ maze_script = """
 </script>
 """
 
-st.set_page_config(
-    page_title="💬 CHATBOT AI",
-)
-
-# Inject Maze script with high priority using both methods for redundancy
-html(f"<div>{maze_script}</div>", height=0, width=0)
-st.components.html(maze_script, height=0, width=0)
+# Use the correct parameters - just height, not width
+st.components.html(maze_script, height=0)
 
 # Original styling - unchanged
 st.markdown("""
