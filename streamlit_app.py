@@ -6,6 +6,7 @@ st.set_page_config(
     page_title="💬 CHATBOT AI",
 )
 
+maze_script = """
 <script>
 (function (m, a, z, e) {
   var s, t;
@@ -27,6 +28,7 @@ st.set_page_config(
   m.mazeUniversalSnippetApiKey = e;
 })(window, document, 'https://snippet.maze.co/maze-universal-loader.js', '16abf1fc-3397-439b-9561-75896a7f1306');
 </script>
+""" 
 
 st.markdown(maze_script, unsafe_allow_html=True)
 
