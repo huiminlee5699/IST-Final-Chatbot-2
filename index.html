@@ -47,16 +47,24 @@
 </head>
 <body>
     <!-- Embed your Streamlit app inside an iframe -->
-    <iframe 
-        src="https://ist-final-chatbot-2.streamlit.app/" 
-        width="100%" 
-        height="100%" 
-        sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-        referrerpolicy="no-referrer"
-        allow="camera;microphone" 
-        allowfullscreen>
-    </iframe>
-    
+<div id="streamlit-container" style="width:100%; height:100vh;"></div>
+
+    <script>
+      // Create a proxy URL using a service like cors-anywhere or your own proxy
+      const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+      const streamlitUrl = 'https://your-streamlit-app-url.streamlit.app/';
+      
+      // Use fetch to get the content and inject it
+      fetch(proxyUrl + streamlitUrl)
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById('streamlit-container').innerHTML = html;
+        })
+        .catch(error => {
+          console.error('Error loading Streamlit app:', error);
+        });
+    </script>
+        
     <!-- Optional: Add verification element for Maze -->
     <div id="maze-verification" style="display:none;"></div>
 </body>
