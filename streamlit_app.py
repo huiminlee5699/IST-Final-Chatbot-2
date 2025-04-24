@@ -30,7 +30,7 @@ maze_script = """
 </script>
 """ 
 
-st.markdown(maze_script, unsafe_allow_html=True)
+st.components.html(maze_script, height=0, width=0)
 
 st.markdown("""
 <style>
