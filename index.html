@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>💬 CHATBOT AI</title>
-    
-    <!-- Maze Tracking Script - Properly placed in head -->
-    <script>
-    (function (m, a, z, e) {
+     <script>
+     (function (m, a, z, e) {
       var s, t;
       try {
         t = m.sessionStorage.getItem('maze-us');
@@ -24,48 +20,9 @@
       a.getElementsByTagName('head')[0].appendChild(s);
       m.mazeUniversalSnippetApiKey = e;
     })(window, document, 'https://snippet.maze.co/maze-universal-loader.js', '16abf1fc-3397-439b-9561-75896a7f1306');
-    </script>
-    
-    <!-- Optional: Add your custom styling here -->
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-        }
-        iframe {
-            border: none;
-            width: 100%;
-            height: 100vh;
-            display: block;
-        }
-        /* Import fonts from your Streamlit app */
-        @import url("https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
-        @import url("https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-    </style>
+     </script> 
+     head content
 </head>
 <body>
-    <!-- Embed your Streamlit app inside an iframe -->
-<div id="streamlit-container" style="width:100%; height:100vh;"></div>
-
-    <script>
-      // Create a proxy URL using a service like cors-anywhere or your own proxy
-      const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-      const streamlitUrl = 'https://your-streamlit-app-url.streamlit.app/';
-      
-      // Use fetch to get the content and inject it
-      fetch(proxyUrl + streamlitUrl)
-        .then(response => response.text())
-        .then(html => {
-          document.getElementById('streamlit-container').innerHTML = html;
-        })
-        .catch(error => {
-          console.error('Error loading Streamlit app:', error);
-        });
-    </script>
-        
-    <!-- Optional: Add verification element for Maze -->
-    <div id="maze-verification" style="display:none;"></div>
+     body content
 </body>
-</html>
