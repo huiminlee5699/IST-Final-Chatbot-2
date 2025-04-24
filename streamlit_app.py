@@ -8,11 +8,6 @@ st.set_page_config(
     page_title="💬 CHATBOT AI",
 )
 
-with open("analytics.html", "r") as f:
-    html_code = f.read()
-    components.html(html_code, height=0)
-
-
 # Original styling - unchanged
 st.markdown("""
 <style>
